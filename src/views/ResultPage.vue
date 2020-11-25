@@ -3,7 +3,7 @@
     <h1>Résultat du test antigénique</h1>
     <div class="paragraphe">Bonjour <span>{{nom}} {{prenom}}</span>,</div>
     <br/>
-    <div v-if="resultCovid === undefined" >
+    <div v-if="resultCovid === null" >
       <div class="paragraphe" >
         Les résultats de votre test antigénique réalisé le <span>{{dateTest}}</span> à <span>{{heureTest}}</span> ne nous sont toujours pas parvenus.
       </div>
@@ -34,6 +34,7 @@
 
 <script>
 import moment from 'moment';
+
 export default {
   name:"ResultPage",
   data() {
@@ -49,7 +50,7 @@ export default {
       linkPDF: '',
       dateTest: '',
       heureTest: '',
-      resultCovid: undefined,
+      resultCovid: null,
     }
   },
   mounted() {
@@ -82,7 +83,8 @@ export default {
         result.json().then(data => {
           this. choixPostale = data.choixPostale;
           this.linkPDF = `https://workshop.mathiasughetto.fr${data.resultatPdf}`;
-          this.resultCovid = data.resultat;
+          // this.resultCovid = data.resultat;
+          this.resultCovid = null;
           this.dateTest = moment(new Date(data.dateHeureTest)).format('DD/MM/YYYY');
           this.heureTest = moment(new Date(data.dateHeureTest)).format('HH:mm');
           });
