@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "moment": "^2.29.1",
     "vue": "^3.0.0",
+    "vue-qrcode": "^0.3.6-beta.0",
     "vue-router": "^4.0.0-0"
   },
   "devDependencies": {
