@@ -3,7 +3,7 @@ import ResultPage from '../views/ResultPage.vue';
 
 const routes = [
   {
-    path: '/:id',
+    path: '/',
     name: 'ResultPage',
     component: ResultPage
   },
