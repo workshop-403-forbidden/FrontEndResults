@@ -133,8 +133,7 @@ export default {
         result.json().then(data => {
           this. choixPostale = data.choixPostale;
           this.linkPDF = `https://workshop.mathiasughetto.fr${data.resultatPdf}`;
-          // this.resultCovid = data.resultat;
-          this.resultCovid = null;
+          this.resultCovid = data.resultat;
           this.dateTest = moment(new Date(data.dateHeureTest)).format('DD/MM/YYYY');
           this.heureTest = moment(new Date(data.dateHeureTest)).format('HH:mm');
           });
